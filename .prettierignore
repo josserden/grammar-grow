@@ -1,0 +1,13 @@
+# Ignore artifacts:
+build
+node_modules
+package-lock.json
+tsconfig.json
+tsconfig.node.json
+/scripts/
+/android/
+/ios/
+/metro.config.js
+/expo-env.d.ts
+/.eslintrc.js
+/.prettierrc.js
