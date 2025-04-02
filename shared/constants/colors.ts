@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const COLORS = {
   BLUE_300: "#ACD0DF",
   ORANGE_700: "#E88465",
