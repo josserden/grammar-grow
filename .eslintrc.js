@@ -7,6 +7,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:react-native/all",
     "prettier",
+    "plugin:@tanstack/query/recommended"
   ],
   ignorePatterns: ["/dist/*"],
   parser: "@typescript-eslint/parser",
