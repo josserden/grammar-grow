@@ -10,8 +10,8 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "useTabs": false,
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["^react", "^react-native", "^expo", "^[a-zA-Z]", "^@?\\w", "^[./]"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": ["^react", "^react-native", "^expo", "^[a-zA-Z]", "^@?\\w", "^[@]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }
