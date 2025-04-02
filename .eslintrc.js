@@ -17,5 +17,5 @@ module.exports = {
     },
   },
   plugins: ["react", "react-native", "prettier"],
-  rules: { "prettier/prettier": "error" },
+  rules: {  },
 };
