@@ -46,7 +46,7 @@ export default function RootLayout() {
 
   if (appIsReady)
     return (
-      <View onLayout={onLayoutRootView} style={{ flex: 1 }}>
+      <View onLayout={onLayoutRootView} className="flex-1 bg-red-50">
         <AuthProvider>
           <QueryClientProvider client={queryClient}>
             <Slot />

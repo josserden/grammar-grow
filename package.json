@@ -9,6 +9,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
+    "type-check": "tsc --pretty --noEmit",
     "lint": "eslint . --ext ts,tsx --fix"
   },
   "jest": {
