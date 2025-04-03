@@ -1,13 +1,14 @@
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 
-import { Link, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 
 import { Step, Stepper } from "@stepperize/core";
 
 import { Progress } from "@/shared/components/icons/onboarding/Progress";
 import { ProgressButton } from "@/shared/components/icons/onboarding/ProgressButton";
 import { OnboardingHeader } from "@/shared/components/screens/ondoarding/OnboardingHeader";
+import { CustomLink } from "@/shared/components/ui/CustomLink";
 import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
 import { ROUTES } from "@/shared/constants/routes";
@@ -77,11 +78,12 @@ const Onboarding = () => {
           <Progress {...data} />
         </ProgressButton>
 
-        <Link asChild href={ROUTES.LOGIN}>
-          <TouchableOpacity className="mt-auto self-center">
-            <Typography className="text-center">Skip</Typography>
-          </TouchableOpacity>
-        </Link>
+        <CustomLink
+          href={ROUTES.LOGIN}
+          className="mt-auto self-center"
+          title="Skip"
+          titleClassName="text-center"
+        />
       </Wrapper>
     </Scoped>
   );
