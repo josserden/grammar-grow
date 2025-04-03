@@ -26,8 +26,6 @@ const wrapperVariants = cva("flex-1 bg-stone-100", {
 interface WrapperProps extends ViewProps, VariantProps<typeof wrapperVariants> {
   topInset?: boolean;
   bottomInset?: boolean;
-  leftInset?: boolean;
-  rightInset?: boolean;
 }
 
 export const Wrapper: FC<WrapperProps> = ({
@@ -37,8 +35,6 @@ export const Wrapper: FC<WrapperProps> = ({
   padding,
   topInset = true,
   bottomInset = true,
-  leftInset = false,
-  rightInset = false,
   style,
   ...props
 }) => {
@@ -47,8 +43,6 @@ export const Wrapper: FC<WrapperProps> = ({
   const safeAreaStyle = {
     paddingTop: topInset ? insets.top : 0,
     paddingBottom: bottomInset ? insets.bottom : 0,
-    paddingLeft: leftInset ? insets.left : 0,
-    paddingRight: rightInset ? insets.right : 0,
   };
 
   return (
