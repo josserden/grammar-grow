@@ -14,37 +14,31 @@ interface ProgressProps {
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-export const Progress: FC<ProgressProps> = ({
-  strokeDashoffset,
-  circumference,
-  strokeWidth,
-  radius,
-  size,
-}) => {
+export const Progress: FC<ProgressProps> = (props) => {
   return (
     <View className="absolute left-1/2 top-1/2 h-[143px] w-[143px] -translate-x-1/2 -translate-y-1/2">
-      <Svg height={size} width={size}>
+      <Svg height={props.size} width={props.size}>
         {/* Background circle (light gray) */}
         <Circle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
+          cx={props.size / 2}
+          cy={props.size / 2}
+          r={props.radius}
           stroke="#0000000D"
-          strokeWidth={strokeWidth}
+          strokeWidth={props.strokeWidth}
           fill="transparent"
         />
         {/* Animated progress circle (black) */}
         <AnimatedCircle
-          cx={size / 2}
-          cy={size / 2}
-          r={radius}
+          cx={props.size / 2}
+          cy={props.size / 2}
+          r={props.radius}
           stroke="#3A2E32"
-          strokeWidth={strokeWidth}
+          strokeWidth={props.strokeWidth}
           fill="transparent"
-          strokeDasharray={circumference}
-          strokeDashoffset={strokeDashoffset}
+          strokeDasharray={props.circumference}
+          strokeDashoffset={props.strokeDashoffset}
           strokeLinecap="round"
-          transform={`rotate(-90, ${size / 2}, ${size / 2})`} // Start from top
+          transform={`rotate(-90, ${props.size / 2}, ${props.size / 2})`} // Start from top
         />
       </Svg>
     </View>

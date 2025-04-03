@@ -3,7 +3,6 @@ import { TouchableOpacity, View } from "react-native";
 
 import { Link, useRouter } from "expo-router";
 
-import { FontAwesome6 } from "@expo/vector-icons";
 import { Step, Stepper } from "@stepperize/core";
 
 import { Progress } from "@/shared/components/icons/onboarding/Progress";
@@ -30,6 +29,14 @@ const Onboarding = () => {
     } else {
       stepper.next();
     }
+  };
+
+  const data = {
+    strokeDashoffset,
+    radius,
+    strokeWidth,
+    size,
+    circumference,
   };
 
   return (
@@ -67,13 +74,7 @@ const Onboarding = () => {
         </View>
 
         <ProgressButton onPress={handleStepChange}>
-          <Progress
-            strokeDashoffset={strokeDashoffset}
-            radius={radius}
-            strokeWidth={strokeWidth}
-            size={size}
-            circumference={circumference}
-          />
+          <Progress {...data} />
         </ProgressButton>
 
         <Link asChild href={ROUTES.LOGIN}>
