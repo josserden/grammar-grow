@@ -44,14 +44,15 @@ export default function RootLayout() {
     }
   }, [appIsReady]);
 
-  if (appIsReady)
-    return (
-      <View onLayout={onLayoutRootView} className="flex-1 bg-red-50">
-        <AuthProvider>
-          <QueryClientProvider client={queryClient}>
-            <Slot />
-          </QueryClientProvider>
-        </AuthProvider>
-      </View>
-    );
+  if (!appIsReady) return null;
+
+  return (
+    <View onLayout={onLayoutRootView} className="flex-1 bg-red-50">
+      <AuthProvider>
+        <QueryClientProvider client={queryClient}>
+          <Slot />
+        </QueryClientProvider>
+      </AuthProvider>
+    </View>
+  );
 }

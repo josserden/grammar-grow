@@ -6,7 +6,7 @@ import { Stack } from "expo-router";
 const AppLayout = () => {
   return (
     <>
-      <StatusBar barStyle="light-content" />
+      <StatusBar hidden />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="register" options={{ headerShown: false }} />
         <Stack.Screen name="login" options={{ headerShown: false }} />

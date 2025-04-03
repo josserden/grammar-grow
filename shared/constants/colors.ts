@@ -8,5 +8,6 @@ export const COLORS = {
   TEAL_500: "#A9D5C5",
   WHITE: "#FFFFFF",
   YELLOW_500: "#F5BE66",
+  ZINC_700: "#3A2E32",
   ZINC_900: "#18181B",
 };
