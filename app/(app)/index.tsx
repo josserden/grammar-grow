@@ -14,6 +14,7 @@ import { Wrapper } from "@/shared/components/ui/Wrapper";
 import { ROUTES } from "@/shared/constants/routes";
 import { useOnboardingProgress } from "@/shared/hooks/useOnboardingProgress";
 import { useOnboardingSteps } from "@/shared/hooks/useOnboardingSteps";
+import { AsyncStorageService, STORAGE_KEY } from "@/shared/lib/storage";
 
 const Onboarding = () => {
   const router = useRouter();
@@ -23,8 +24,9 @@ const Onboarding = () => {
     stepper as unknown as Stepper<Step[]>
   );
 
-  const handleStepChange = () => {
+  const handleStepChange = async () => {
     if (stepper.isLast) {
+      await AsyncStorageService.setItem(STORAGE_KEY.ONBOARDING_COMPLETED, "true");
       router.replace(ROUTES.LOGIN);
       stepper.reset();
     } else {
