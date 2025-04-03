@@ -3,7 +3,11 @@ import { StatusBar } from "react-native";
 
 import { Stack } from "expo-router";
 
+import { useAsyncStorageDevTools } from "@dev-plugins/async-storage";
+
 const AppLayout = () => {
+  useAsyncStorageDevTools();
+
   return (
     <>
       <StatusBar hidden />

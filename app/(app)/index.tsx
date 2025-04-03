@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View } from "react-native";
 
 import { useRouter } from "expo-router";
@@ -24,10 +24,18 @@ const Onboarding = () => {
     stepper as unknown as Stepper<Step[]>
   );
 
-  const handleStepChange = async () => {
-    if (stepper.isLast) {
+  const completedOnboarding = useCallback(async () => {
+    try {
       await AsyncStorageService.setItem(STORAGE_KEY.ONBOARDING_COMPLETED, "true");
       router.replace(ROUTES.LOGIN);
+    } catch (error) {
+      console.error("Error saving onboarding status:", error);
+    }
+  }, [router]);
+
+  const handleStepChange = async () => {
+    if (stepper.isLast) {
+      await completedOnboarding();
       stepper.reset();
     } else {
       stepper.next();
@@ -81,6 +89,7 @@ const Onboarding = () => {
         </ProgressButton>
 
         <CustomLink
+          onPress={completedOnboarding}
           href={ROUTES.LOGIN}
           className="mt-auto self-center"
           title="Skip"
