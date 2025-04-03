@@ -7,6 +7,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import { Step, Stepper } from "@stepperize/core";
 
 import { Progress } from "@/shared/components/icons/onboarding/Progress";
+import { ProgressButton } from "@/shared/components/icons/onboarding/ProgressButton";
 import { OnboardingHeader } from "@/shared/components/screens/ondoarding/OnboardingHeader";
 import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
@@ -65,14 +66,7 @@ const Onboarding = () => {
           ))}
         </View>
 
-        <TouchableOpacity
-          className="relative h-[143px] w-[143px] items-center justify-center self-center rounded-full border-4 border-stone-200"
-          onPress={handleStepChange}
-        >
-          <View className="h-[110px] w-[110px] items-center justify-center rounded-full bg-yellow-500">
-            <FontAwesome6 color="black" name="arrow-right" size={40} />
-          </View>
-
+        <ProgressButton onPress={handleStepChange}>
           <Progress
             strokeDashoffset={strokeDashoffset}
             radius={radius}
@@ -80,7 +74,7 @@ const Onboarding = () => {
             size={size}
             circumference={circumference}
           />
-        </TouchableOpacity>
+        </ProgressButton>
 
         <Link asChild href={ROUTES.LOGIN}>
           <TouchableOpacity className="mt-auto self-center">
