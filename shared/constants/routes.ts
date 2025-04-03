@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export enum ROUTES {
   ABOUT = "/(app)/(authenticated)/(tabs)/profile/about",
   ACHIEVEMENTS = "/(app)/(authenticated)/(tabs)/statistics/achievements",
