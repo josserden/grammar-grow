@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Svg, { ClipPath, Defs, G, Mask, Path, Rect, SvgProps } from "react-native-svg";
+import Svg, { ClipPath, Defs, G, Path, Rect, SvgProps } from "react-native-svg";
 
 export const ComingSoon: FC<SvgProps> = ({ ...props }) => {
   return (

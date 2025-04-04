@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Dimensions, StyleSheet } from "react-native";
-import { useSharedValue } from "react-native-reanimated";
 import Carousel, { ICarouselInstance } from "react-native-reanimated-carousel";
 
 import { GradeCard } from "@/shared/components/screens/play/GradeCard";
@@ -10,7 +9,6 @@ const data = Array.from({ length: 12 }, (_, i) => i);
 
 export const GradeList = () => {
   const ref = React.useRef<ICarouselInstance>(null);
-  const progress = useSharedValue<number>(0);
 
   return (
     <Carousel
@@ -22,10 +20,11 @@ export const GradeList = () => {
         parallaxScrollingOffset: 60,
         parallaxScrollingScale: 1,
       }}
-      onProgressChange={progress}
       pagingEnabled={true}
       ref={ref}
-      renderItem={({ index }) => <GradeCard index={index} />}
+      renderItem={({ index, animationValue }) => (
+        <GradeCard index={index} animationValue={animationValue} />
+      )}
       snapEnabled={true}
       width={width}
     />
