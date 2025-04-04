@@ -14,7 +14,7 @@ import { useAppInitialization } from "@/shared/hooks/useAppInitialization";
 SplashScreen.preventAutoHideAsync();
 
 SplashScreen.setOptions({
-  duration: 1000,
+  duration: 3000,
   fade: true,
 });
 
