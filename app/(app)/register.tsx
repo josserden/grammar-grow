@@ -73,7 +73,7 @@ const Register = () => {
         <ProviderButton type="google" />
       </AuthProviders>
 
-      <SignPrompt href={ROUTES.REGISTER} linkText="Sign in" prompt="Already have an account?" />
+      <SignPrompt href={ROUTES.LOGIN} linkText="Sign in" prompt="Already have an account?" />
     </Wrapper>
   );
 };

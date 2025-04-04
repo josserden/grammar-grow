@@ -31,9 +31,9 @@ const Login = () => {
   const { loading, signInWithEmail } = useAuth();
 
   const onSubmit = async (data: LoginFormSchemaType) => {
-    // const result = await signInWithEmail(data.email, data.password);
+    const result = await signInWithEmail(data.email, data.password);
 
-    console.log(data);
+    console.log(result);
   };
 
   const isLoading = loading || form.formState.isSubmitting;
@@ -48,7 +48,7 @@ const Login = () => {
       </View>
 
       <FormProvider {...form}>
-        <View className="mb-24 w-full">
+        <View className="mb-14 w-full">
           <Input className="mb-5" name="email" placeholder="Email" />
           <Input className="mb-5" name="password" placeholder="Password" secureTextEntry />
 
