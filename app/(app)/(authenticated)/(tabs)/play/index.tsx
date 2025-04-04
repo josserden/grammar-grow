@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PlayCarousel } from "@/shared/components/screens/play/PlayCarousel";
+import { GradeList } from "@/shared/components/screens/play/GradeList";
 import { PlayHeader } from "@/shared/components/screens/play/PlayHeader";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
 
@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <Wrapper alignment="start">
       <PlayHeader />
-      <PlayCarousel />
+      <GradeList />
     </Wrapper>
   );
 };

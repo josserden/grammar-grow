@@ -16,7 +16,7 @@ interface PlayCardProps {
   index: number;
 }
 
-export const PlayCard: FC<PlayCardProps> = ({ index = 0 }) => {
+export const GradeCard: FC<PlayCardProps> = ({ index = 0 }) => {
   return (
     <View className="" style={styles.shadowStyle}>
       <View className="relative w-[326px] overflow-hidden rounded-[40px] bg-teal-500">

@@ -1,15 +1,14 @@
 import * as React from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, View } from "react-native";
 import { Extrapolation, interpolate, useSharedValue } from "react-native-reanimated";
-import Carousel, { ICarouselInstance, Pagination } from "react-native-reanimated-carousel";
+import Carousel, { ICarouselInstance } from "react-native-reanimated-carousel";
 
-import { PlayCard } from "@/shared/components/screens/play/PlayCard";
-import { COLORS } from "@/shared/constants/colors";
+import { GradeCard } from "@/shared/components/screens/play/GradeCard";
 
 const { width } = Dimensions.get("window");
-const data = [];
+const data = Array.from({ length: 12 }, (_, i) => i);
 
-export const PlayCarousel = () => {
+export const GradeList = () => {
   const ref = React.useRef<ICarouselInstance>(null);
   const progress = useSharedValue<number>(0);
 
@@ -43,41 +42,10 @@ export const PlayCarousel = () => {
         onProgressChange={progress}
         pagingEnabled={true}
         ref={ref}
-        renderItem={({ index }) => <PlayCard index={index} />}
+        renderItem={({ index }) => <GradeCard index={index} />}
         snapEnabled={true}
         width={width}
-      />
-
-      <Pagination.Custom
-        activeDotStyle={styles.activeDot}
-        containerStyle={styles.containerStyle}
-        customReanimatedStyle={customReanimatedStyle}
-        data={data}
-        dotStyle={styles.dot}
-        horizontal
-        progress={progress}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  activeDot: {
-    backgroundColor: COLORS.ZINC_900,
-    borderRadius: 14,
-    height: 6,
-    overflow: "hidden",
-    width: 27,
-  },
-  containerStyle: {
-    alignItems: "center",
-    gap: 5,
-    marginBottom: 10,
-  },
-  dot: {
-    backgroundColor: COLORS.STONE_400,
-    borderRadius: 14,
-    height: 6,
-    width: 7,
-  },
-});
