@@ -1,8 +1,8 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
+import React from "react";
+import { ScrollView } from "react-native";
 
-import { ProfileScreenWrapper } from '@/shared/components/screens/profile/profile-screen-wrapper';
-import { Typography } from '@/shared/components/ui/typography';
+import { ProfileScreenWrapper } from "@/shared/components/screens/profile/ProfileScreenWrapper";
+import { Typography } from "@/shared/components/ui/Typography";
 
 const Policy = () => {
   return (

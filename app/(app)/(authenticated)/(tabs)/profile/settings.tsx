@@ -1,14 +1,14 @@
-import React from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
-import { Switch, View } from 'react-native';
+import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { Switch, View } from "react-native";
 
-import { ProfileScreenWrapper } from '@/shared/components/screens/profile/profile-screen-wrapper';
-import { Input } from '@/shared/components/ui/input';
-import { Typography } from '@/shared/components/ui/typography';
+import { Input } from "@/shared/components/form/Input";
+import { ProfileScreenWrapper } from "@/shared/components/screens/profile/ProfileScreenWrapper";
+import { Typography } from "@/shared/components/ui/Typography";
 
 const Settings = () => {
   const form = useForm({
-    mode: 'onChange',
+    mode: "onChange",
   });
 
   return (
