@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { View } from "react-native";
 
-import { Chart } from "@/shared/components/icons/Chart";
-import { Cup } from "@/shared/components/icons/Cup";
-import { Play } from "@/shared/components/icons/Play";
-import { User } from "@/shared/components/icons/User";
+import { Chart } from "@/shared/components/icons/tab/Chart";
+import { Cup } from "@/shared/components/icons/tab/Cup";
+import { Play } from "@/shared/components/icons/tab/Play";
+import { User } from "@/shared/components/icons/tab/User";
 import { cn } from "@/shared/lib/utils";
 import { TabBarButtonProps } from "@/shared/types/TabBarIcon.types";
 

@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren } from "react";
 import { View } from "react-native";
 
-import { HeaderDecor } from "@/shared/components/icons/HeaderDecor";
+import { HeaderDecor } from "@/shared/components/icons/decor/HeaderDecor";
 import { Avatar } from "@/shared/components/ui/Avatar";
 import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";

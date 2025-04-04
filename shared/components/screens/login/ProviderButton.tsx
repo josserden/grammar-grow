@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-import { Apple } from "@/shared/components/icons/Apple";
-import { Google } from "@/shared/components/icons/Google";
+import { Apple } from "@/shared/components/icons/social/Apple";
+import { Google } from "@/shared/components/icons/social/Google";
 import { Typography } from "@/shared/components/ui/Typography";
 
 interface SignButtonProps extends TouchableOpacityProps {

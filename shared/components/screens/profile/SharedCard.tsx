@@ -5,8 +5,8 @@ import Entypo from "@expo/vector-icons/Entypo";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
-import { Instagram } from "@/shared/components/icons/Instagram";
-import { Profile } from "@/shared/components/icons/Profile";
+import { Instagram } from "@/shared/components/icons/social/Instagram";
+import { Profile } from "@/shared/components/icons/tab/Profile";
 import { Card } from "@/shared/components/ui/Card";
 
 export const SharedCard: FC = () => {

@@ -12,6 +12,7 @@ interface CustomLinkProps extends LinkProps {
 }
 
 export const CustomLink: FC<CustomLinkProps> = ({
+  children,
   href,
   className,
   titleClassName,
@@ -22,6 +23,7 @@ export const CustomLink: FC<CustomLinkProps> = ({
     <Link asChild href={href} {...props}>
       <TouchableOpacity className={cn(className)}>
         <Typography className={cn(titleClassName)}>{title}</Typography>
+        {children}
       </TouchableOpacity>
     </Link>
   );
