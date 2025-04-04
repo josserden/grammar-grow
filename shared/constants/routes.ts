@@ -5,6 +5,7 @@ export enum ROUTES {
   FORGOT_PASSWORD = "/forgot-password",
   HOME = "/",
   LOGIN = "/login",
+  PLAY = "/(app)/(authenticated)/(tabs)/play",
   POLICY = "/(app)/(authenticated)/(tabs)/profile/policy",
   REGISTER = "/register",
   SETTINGS = "/(app)/(authenticated)/(tabs)/profile/settings",
