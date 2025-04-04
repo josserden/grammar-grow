@@ -2,6 +2,7 @@ import React from "react";
 
 import { ProfileLink } from "@/shared/components/screens/profile/ProfileLink";
 import { ProfileScreenWrapper } from "@/shared/components/screens/profile/ProfileScreenWrapper";
+import { SharedCard } from "@/shared/components/screens/profile/SharedCard";
 import { Button } from "@/shared/components/ui/Button";
 import { ROUTES } from "@/shared/constants/routes";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -15,7 +16,7 @@ const Index = () => {
       <ProfileLink href={ROUTES.ABOUT} icon="info" text="About app" />
       <ProfileLink href={ROUTES.POLICY} icon="shield" text="Privacy Policy" withoutBorder />
 
-      {/*<SharedCard />*/}
+      <SharedCard />
 
       <Button className="mt-auto" disabled={loading} onPress={signOut} variant="ghost">
         {loading ? "Loading..." : "Log out"}
