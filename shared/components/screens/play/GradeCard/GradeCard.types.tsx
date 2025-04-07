@@ -13,8 +13,9 @@ export interface GradeCardLevelProps {
   icon: ReactNode;
   href: Href;
   tier: number;
+  color: string;
 }
 
 export interface GradeListProps {
-  levels: Pick<GradeCardProps, "level">[];
+  levels: GradeCardLevelProps[];
 }

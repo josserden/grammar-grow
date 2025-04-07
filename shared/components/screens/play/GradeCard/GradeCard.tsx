@@ -12,7 +12,7 @@ import { COLORS } from "@/shared/constants/colors";
 
 export const GradeCard: FC<GradeCardProps> = ({
   animationValue,
-  level: { rank, icon, href, tier },
+  level: { rank, icon, href, tier, color },
 }) => {
   const animatedStyle = useAnimatedStyle(() => {
     const opacity = interpolate(animationValue.value, [-1, 0, 1], [0.3, 1, 0.3]);
@@ -27,10 +27,15 @@ export const GradeCard: FC<GradeCardProps> = ({
   return (
     <Animated.View style={animatedStyle}>
       <View style={styles.shadowStyle}>
-        <View className="relative w-[326px] overflow-hidden rounded-[40px] bg-teal-500">
+        <View
+          className="relative w-[326px] overflow-hidden rounded-[40px]"
+          style={{ backgroundColor: color }}
+        >
           <View className="px-8 pt-[58px]">
             <View className="mb-4 flex-row items-center justify-between">
-              <Typography variant="title">{rank}</Typography>
+              <Typography variant="title" className="min-h-16">
+                {rank}
+              </Typography>
 
               <View className="absolute -top-[58px] right-2 flex-row items-center gap-2">
                 <Flag />
