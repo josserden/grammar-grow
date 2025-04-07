@@ -1,19 +1,20 @@
+import { FC } from "react";
 import * as React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import Carousel, { ICarouselInstance } from "react-native-reanimated-carousel";
 
-import { GradeCard } from "@/shared/components/screens/play/GradeCard";
+import { GradeCard } from "@/shared/components/screens/play/GradeCard/GradeCard";
+import { GradeListProps } from "@/shared/components/screens/play/GradeCard/GradeCard.types";
 
 const { width } = Dimensions.get("window");
-const data = Array.from({ length: 12 }, (_, i) => i);
 
-export const GradeList = () => {
+export const GradeList: FC<GradeListProps> = ({ levels }) => {
   const ref = React.useRef<ICarouselInstance>(null);
 
   return (
     <Carousel
       containerStyle={styles.container}
-      data={data}
+      data={levels}
       loop={false}
       mode="parallax"
       modeConfig={{
@@ -22,8 +23,8 @@ export const GradeList = () => {
       }}
       pagingEnabled={true}
       ref={ref}
-      renderItem={({ index, animationValue }) => (
-        <GradeCard index={index} animationValue={animationValue} />
+      renderItem={({ item, animationValue }) => (
+        <GradeCard level={item} animationValue={animationValue} />
       )}
       snapEnabled={true}
       width={width}
