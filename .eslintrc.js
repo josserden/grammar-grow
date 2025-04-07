@@ -19,5 +19,6 @@ module.exports = {
   plugins: ["react", "react-native", "prettier"],
   rules: {
     "react-native/no-raw-text": "off",
+    "react/prop-types": "off",
   },
 };
