@@ -1,15 +1,16 @@
 import React from "react";
 
 import { Beginner } from "@/shared/components/icons/grade/Beginner";
-import { GradeCardLevelProps } from "@/shared/components/screens/play/GradeCard/GradeCard.types";
+import { GradeCardTestProps } from "@/shared/components/screens/play/GradeCard/GradeCard.types";
 import { GradeLevelRankEnum } from "@/shared/components/screens/play/GradeList/GradeList.types";
 import { COLORS } from "@/shared/constants/colors";
+import { ROUTES } from "@/shared/constants/routes";
 
-export const levels: GradeCardLevelProps[] = [
+export const tests: GradeCardTestProps[] = [
   {
     rank: "Beginner's Journey",
     icon: <Beginner />,
-    href: GradeLevelRankEnum.BEGINNERS_JOURNEY,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.BEGINNERS_JOURNEY}`,
     tier: 1,
     color: COLORS.TEAL_500,
   },

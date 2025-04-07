@@ -8,13 +8,13 @@ import { GradeListProps } from "@/shared/components/screens/play/GradeCard/Grade
 
 const { width } = Dimensions.get("window");
 
-export const GradeList: FC<GradeListProps> = ({ levels }) => {
+export const GradeList: FC<GradeListProps> = ({ tests }) => {
   const ref = React.useRef<ICarouselInstance>(null);
 
   return (
     <Carousel
       containerStyle={styles.container}
-      data={levels}
+      data={tests}
       loop={false}
       mode="parallax"
       modeConfig={{
@@ -24,7 +24,7 @@ export const GradeList: FC<GradeListProps> = ({ levels }) => {
       pagingEnabled={true}
       ref={ref}
       renderItem={({ item, animationValue }) => (
-        <GradeCard level={item} animationValue={animationValue} />
+        <GradeCard test={item} animationValue={animationValue} />
       )}
       snapEnabled={true}
       width={width}

@@ -12,7 +12,7 @@ import { COLORS } from "@/shared/constants/colors";
 
 export const GradeCard: FC<GradeCardProps> = ({
   animationValue,
-  level: { rank, icon, href, tier, color },
+  test: { rank, icon, href, tier, color },
 }) => {
   const animatedStyle = useAnimatedStyle(() => {
     const opacity = interpolate(animationValue.value, [-1, 0, 1], [0.3, 1, 0.3]);

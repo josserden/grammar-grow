@@ -5,10 +5,10 @@ import { Href } from "expo-router";
 
 export interface GradeCardProps {
   animationValue: SharedValue<number>;
-  level: GradeCardLevelProps;
+  test: GradeCardTestProps;
 }
 
-export interface GradeCardLevelProps {
+export interface GradeCardTestProps {
   rank: string;
   icon: ReactNode;
   href: Href;
@@ -17,5 +17,5 @@ export interface GradeCardLevelProps {
 }
 
 export interface GradeListProps {
-  levels: GradeCardLevelProps[];
+  tests: GradeCardTestProps[];
 }
