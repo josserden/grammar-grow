@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Svg, { Path, SvgProps } from "react-native-svg";
 
-export const Beginner: FC<SvgProps> = ({ ...props }) => {
+export const Journey: FC<SvgProps> = ({ ...props }) => {
   return (
     <Svg fill="none" height="201" viewBox="0 0 268 201" width="268" {...props}>
       <Path
