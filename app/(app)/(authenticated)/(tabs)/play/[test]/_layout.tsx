@@ -9,8 +9,6 @@ import { useTestTitle } from "@/shared/hooks/useTestTitle";
 const TestLayout = () => {
   const { title } = useTestTitle();
 
-  console.log("title", title);
-
   return (
     <Stack
       screenOptions={{
