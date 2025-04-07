@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Href } from "expo-router";
+
 import { Achiever } from "@/shared/components/icons/grade/Achiever";
 import { Challenger } from "@/shared/components/icons/grade/Challenger";
 import { Communicator } from "@/shared/components/icons/grade/Communicator";
@@ -21,84 +23,84 @@ export const tests: GradeCardTestProps[] = [
   {
     rank: "Beginner's Journey",
     icon: <Journey />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.BEGINNERS_JOURNEY}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.BEGINNERS_JOURNEY}` as Href,
     tier: 1,
     color: COLORS.TEAL_500,
   },
   {
     rank: "Rising Star",
     icon: <Star />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.RISING_STAR}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.RISING_STAR}` as Href,
     tier: 2,
     color: COLORS.BLUE_300,
   },
   {
     rank: "Proficient Learner",
     icon: <Learner />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.PROFICIENT_LEARNER}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.PROFICIENT_LEARNER}` as Href,
     tier: 3,
     color: COLORS.PINK_700,
   },
   {
     rank: "Skilled Navigator",
     icon: <Navigator />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.SKILLED_NAVIGATOR}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.SKILLED_NAVIGATOR}` as Href,
     tier: 4,
     color: COLORS.YELLOW_500,
   },
   {
     rank: "Global Communicator",
     icon: <Communicator />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.GLOBAL_COMMUNICATOR}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.GLOBAL_COMMUNICATOR}` as Href,
     tier: 5,
     color: COLORS.ORANGE_700,
   },
   {
     rank: "Academic Challenger",
     icon: <Challenger />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.ACADEMIC_CHALLENGER}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.ACADEMIC_CHALLENGER}` as Href,
     tier: 6,
     color: COLORS.TEAL_500,
   },
   {
     rank: "Master of Proficiency",
     icon: <Proficiency />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.MASTER_OF_PROFICIENCY}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.MASTER_OF_PROFICIENCY}` as Href,
     tier: 7,
     color: COLORS.BLUE_300,
   },
   {
     rank: "Elite Thinker",
     icon: <Thinker />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.ELITE_THINKER}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.ELITE_THINKER}` as Href,
     tier: 8,
     color: COLORS.PINK_700,
   },
   {
     rank: "Language Virtuoso",
     icon: <Virtuoso />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.LANGUAGE_VIRTUOSO}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.LANGUAGE_VIRTUOSO}` as Href,
     tier: 9,
     color: COLORS.YELLOW_500,
   },
   {
     rank: "Graduate Explorer",
     icon: <Explorer />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.GRADUATE_EXPLORER}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.GRADUATE_EXPLORER}` as Href,
     tier: 10,
     color: COLORS.ORANGE_700,
   },
   {
     rank: "Business Strategist",
     icon: <Strategist />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.BUSINESS_STRATEGIST}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.BUSINESS_STRATEGIST}` as Href,
     tier: 11,
     color: COLORS.TEAL_500,
   },
   {
     rank: "Ultimate Achiever",
     icon: <Achiever />,
-    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.ULTIMATE_ACHIEVER}`,
+    href: `${ROUTES.PLAY}/${GradeLevelRankEnum.ULTIMATE_ACHIEVER}` as Href,
     tier: 12,
     color: COLORS.BLUE_300,
   },
