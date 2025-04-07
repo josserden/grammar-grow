@@ -12,3 +12,18 @@ export enum GradeLevelRankEnum {
   BUSINESS_STRATEGIST = "gmat",
   ULTIMATE_ACHIEVER = "act",
 }
+
+export enum GradeLevelRankNameEnum {
+  BEGINNERS_JOURNEY = "Beginner's Journey",
+  RISING_STAR = "Rising Star",
+  PROFICIENT_LEARNER = "Proficient Learner",
+  SKILLED_NAVIGATOR = "Skilled Navigator",
+  GLOBAL_COMMUNICATOR = "Global Communicator",
+  ACADEMIC_CHALLENGER = "Academic Challenger",
+  MASTER_OF_PROFICIENCY = "Master of Proficiency",
+  ELITE_THINKER = "Elite Thinker",
+  LANGUAGE_VIRTUOSO = "Language Virtuoso",
+  GRADUATE_EXPLORER = "Graduate Explorer",
+  BUSINESS_STRATEGIST = "Business Strategist",
+  ULTIMATE_ACHIEVER = "Ultimate Achiever",
+}
