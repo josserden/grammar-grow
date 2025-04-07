@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { TouchableOpacity, View, ViewProps } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
-import { Link, useGlobalSearchParams, useLocalSearchParams } from "expo-router";
+import { Link, useGlobalSearchParams } from "expo-router";
 
 import { Lock } from "@/shared/components/icons/Lock";
 import { Typography } from "@/shared/components/ui/Typography";

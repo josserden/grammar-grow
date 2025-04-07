@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export enum GradeLevelRankEnum {
   BEGINNERS_JOURNEY = "es",
   RISING_STAR = "ms",

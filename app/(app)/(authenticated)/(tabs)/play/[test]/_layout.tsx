@@ -10,8 +10,6 @@ const TestLayout = () => {
   const { title } = useTestTitle();
   const { level } = useGlobalSearchParams();
 
-  console.log("TestLayout", level);
-
   return (
     <Stack
       screenOptions={{
