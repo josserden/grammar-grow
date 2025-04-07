@@ -1,18 +1,16 @@
 import React from "react";
-import { Text, View } from "react-native";
 
-import { useLocalSearchParams } from "expo-router";
+import { useGlobalSearchParams } from "expo-router";
 
+import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
 
 const TestId = () => {
-  const params = useLocalSearchParams();
-
-  console.log("[params]", params);
+  const { test } = useGlobalSearchParams();
 
   return (
     <Wrapper>
-      <Text>Test</Text>
+      <Typography variant="title">Test: {test}</Typography>
     </Wrapper>
   );
 };
