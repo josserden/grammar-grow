@@ -3,7 +3,7 @@ import * as React from "react";
 import { Dimensions, StyleSheet } from "react-native";
 import Carousel, { ICarouselInstance } from "react-native-reanimated-carousel";
 
-import { GradeCard } from "@/shared/components/screens/play/GradeCard/GradeCard";
+import { GradeCard } from "@/shared/components/screens/play/GradeCard";
 import { GradeListProps } from "@/shared/components/screens/play/GradeCard/GradeCard.types";
 
 const { width } = Dimensions.get("window");
