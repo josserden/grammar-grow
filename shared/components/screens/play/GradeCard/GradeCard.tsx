@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import Animated, { interpolate, useAnimatedStyle } from "react-native-reanimated";
 
 import { Flag } from "@/shared/components/icons/Flag";
+import { Lock } from "@/shared/components/icons/Lock";
 import { PlaySm } from "@/shared/components/icons/PlaySm";
 import { PlayDecor } from "@/shared/components/icons/decor/PlayDecor";
 import { GradeCardProps } from "@/shared/components/screens/play/GradeCard/GradeCard.types";
@@ -13,6 +14,7 @@ import { COLORS } from "@/shared/constants/colors";
 export const GradeCard: FC<GradeCardProps> = ({
   animationValue,
   test: { rank, icon, href, tier, color },
+  isLocked,
 }) => {
   const animatedStyle = useAnimatedStyle(() => {
     const opacity = interpolate(animationValue.value, [-1, 0, 1], [0.3, 1, 0.3]);
@@ -29,7 +31,7 @@ export const GradeCard: FC<GradeCardProps> = ({
       <View style={styles.shadowStyle}>
         <View
           className="relative w-[326px] overflow-hidden rounded-[40px]"
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: isLocked ? COLORS.STONE_400 : color }}
         >
           <View className="px-8 pt-[58px]">
             <View className="mb-4 flex-row items-center justify-between">
@@ -58,6 +60,7 @@ export const GradeCard: FC<GradeCardProps> = ({
               className="mb-1 flex-row items-center justify-center gap-2 self-start rounded-full border border-zinc-900 bg-transparent px-5 py-2.5"
               href={href}
               title="Select"
+              disabled={isLocked}
             >
               <PlaySm />
             </CustomLink>
@@ -67,7 +70,13 @@ export const GradeCard: FC<GradeCardProps> = ({
             <PlayDecor />
           </View>
 
-          <View className="absolute bottom-0 left-1/2 -translate-x-1/2">{icon}</View>
+          {isLocked ? (
+            <View className="absolute bottom-20 left-1/2 -translate-x-1/2">
+              <Lock width={100} height={100} />
+            </View>
+          ) : (
+            <View className="absolute bottom-0 left-1/2 -translate-x-1/2">{icon}</View>
+          )}
         </View>
       </View>
     </Animated.View>
