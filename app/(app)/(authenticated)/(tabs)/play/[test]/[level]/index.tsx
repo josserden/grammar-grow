@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
 
-const LevelId = () => {
+const Index = () => {
   return (
     <Wrapper>
       <Typography>Level Id</Typography>
@@ -11,4 +11,4 @@ const LevelId = () => {
   );
 };
 
-export default LevelId;
+export default Index;
