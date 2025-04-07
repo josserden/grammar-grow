@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { TouchableOpacity, View, ViewProps } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
-import { Link, useLocalSearchParams } from "expo-router";
+import { Link, useGlobalSearchParams, useLocalSearchParams } from "expo-router";
 
 import { Lock } from "@/shared/components/icons/Lock";
 import { Typography } from "@/shared/components/ui/Typography";
@@ -24,8 +24,10 @@ export const TestPage: FC<TestPageProps> = ({
   isLocked,
   ...props
 }) => {
+  const { test } = useGlobalSearchParams();
+
   return (
-    <Link href={ROUTES.PLAY} asChild disabled={isLocked}>
+    <Link href={`${ROUTES.PLAY}/${test}/${id}`} asChild disabled={isLocked}>
       <TouchableOpacity
         className="relative w-full flex-row justify-between rounded-[20px] px-[22px] py-6"
         style={{
