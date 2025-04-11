@@ -35,9 +35,8 @@ export const GradeList: FC<GradeListProps> = ({ tests }) => {
 const styles = StyleSheet.create({
   container: {
     height: 480,
-    marginBottom: "auto",
     marginLeft: -14,
-    marginTop: "auto",
+    marginTop: 40,
     width: "100%",
   },
 });
