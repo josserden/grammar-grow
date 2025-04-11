@@ -53,6 +53,7 @@ export const TestPage: FC<TestPageProps> = ({
             tintColor={COLORS.ZINC_900}
             backgroundColor={COLORS.WHITE}
             rotation={0}
+            delay={300}
           >
             {(fill) => <Typography>{fill.toFixed(0)}%</Typography>}
           </AnimatedCircularProgress>

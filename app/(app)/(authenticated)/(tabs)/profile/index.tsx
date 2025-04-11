@@ -18,7 +18,7 @@ const Index = () => {
 
       <SharedCard />
 
-      <Button className="mt-auto" disabled={loading} onPress={signOut} variant="ghost">
+      <Button className="mt-10" disabled={loading} onPress={signOut} variant="ghost">
         {loading ? "Loading..." : "Log out"}
       </Button>
     </ProfileScreenWrapper>

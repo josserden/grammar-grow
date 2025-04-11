@@ -38,6 +38,9 @@ export default function TabLayout() {
         tabBarActiveTintColor: COLORS.WHITE,
         tabBarInactiveTintColor: COLORS.STONE_400,
         tabBarStyle: tabBarStyle,
+        contentStyle: {
+          backgroundColor: "transparent",
+        },
       }}
     >
       <Tabs.Screen
@@ -58,6 +61,7 @@ export default function TabLayout() {
             <TabBarIcon color={color} focused={focused} icon="play" />
           ),
           title: "",
+          unmountOnBlur: true,
         }}
       />
       <Tabs.Screen
