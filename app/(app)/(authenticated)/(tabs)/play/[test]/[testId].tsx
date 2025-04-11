@@ -85,22 +85,19 @@ const AnimatedItem = ({ item, index, animatedValues }) => {
 };
 
 const TestId = () => {
-  // Створюємо масив анімованих значень для кожного елемента
   const animatedValues = useRef(levels.map(() => new Animated.Value(0))).current;
 
   useEffect(() => {
-    // Анімуємо кожен елемент з невеликою затримкою
     const animations = animatedValues.map((value, index) => {
       return Animated.timing(value, {
         toValue: 1,
-        duration: 100,
-        delay: index * 10, // Затримка між анімаціями кожного елемента
+        duration: 200,
+        delay: index * 50,
         useNativeDriver: true,
         easing: Easing.out(Easing.cubic),
       });
     });
 
-    // Запускаємо всі анімації
     Animated.stagger(100, animations).start();
   }, [animatedValues]);
 
