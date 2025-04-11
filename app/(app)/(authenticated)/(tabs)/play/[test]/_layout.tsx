@@ -33,9 +33,10 @@ const TestLayout = () => {
       <Stack.Screen
         name="[level]"
         options={{
-          headerLeft: () => <GoBackButton />,
+          headerLeft: () => <GoBackButton icon="close" withConfirmation />,
           headerShadowVisible: false,
           title: `Level ${level}`,
+          gestureEnabled: false,
         }}
       />
     </Stack>

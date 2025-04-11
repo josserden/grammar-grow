@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
@@ -47,12 +48,14 @@ export default function RootLayout() {
   if (!appIsReady) return null;
 
   return (
-    <View onLayout={onLayoutRootView} className="flex-1 bg-red-50">
-      <AuthProvider>
-        <QueryClientProvider client={queryClient}>
-          <Slot />
-        </QueryClientProvider>
-      </AuthProvider>
-    </View>
+    <GestureHandlerRootView>
+      <View onLayout={onLayoutRootView} className="flex-1 bg-red-50">
+        <AuthProvider>
+          <QueryClientProvider client={queryClient}>
+            <Slot />
+          </QueryClientProvider>
+        </AuthProvider>
+      </View>
+    </GestureHandlerRootView>
   );
 }
