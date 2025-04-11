@@ -17,13 +17,15 @@ export const Button: FC<ButtonProps> = ({ children, className, variant = "primar
         "flex-row items-center justify-center rounded-full border border-zinc-900 p-4",
         props.disabled ? "opacity-50" : "opacity-100",
         variant === "primary" && "bg-yellow-500",
+        variant === "secondary" && "bg-stone-100 text-zinc-900",
+
         className
       )}
       style={variant !== "ghost" && styles.button}
     >
       <Text
         className={cn(
-          "text-base text-black",
+          "text-base text-zinc-900",
           variant === "ghost" ? "font-montserrat-medium" : "font-dela-gothic-one"
         )}
       >
