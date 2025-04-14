@@ -5,7 +5,7 @@ import { Logout } from "@/shared/components/icons/Logout";
 import { COLORS } from "@/shared/constants/colors";
 import { cn } from "@/shared/lib/utils";
 
-interface ButtonProps extends TouchableOpacityProps {
+export interface ButtonProps extends TouchableOpacityProps {
   variant?: "ghost" | "lock" | "primary" | "secondary";
 }
 
