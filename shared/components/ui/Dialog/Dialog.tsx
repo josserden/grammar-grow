@@ -24,20 +24,17 @@ const ModalComponent: FC<DialogProps> = ({ children, color = "yellow", ...props 
     <Modal animationType="fade" transparent={true} {...props}>
       <View className="flex-1 items-center justify-end bg-black/70">
         <View className="relative w-full">
-          <View className={cn("p-6", color === "yellow" ? "bg-yellow-500" : "bg-white")}>
-            <HeaderDecor
-              style={[styles.decor, color === "yellow" ? styles.yellow : styles.white]}
-            />
+          <HeaderDecor
+            style={styles.decor}
+            fill={color === "yellow" ? COLORS.YELLOW_500 : COLORS.WHITE}
+          />
+          <View className={cn("z-50 gap-8 p-6", color === "yellow" ? "bg-yellow-500" : "bg-white")}>
             {children}
           </View>
         </View>
       </View>
     </Modal>
   );
-};
-
-const ModalBody: FC<PropsWithChildren & WithClassName> = ({ children, className }) => {
-  return <View className={cn("gap-8", className)}>{children}</View>;
 };
 
 const ModalTitle: FC<PropsWithChildren & WithClassName> = ({ children, className }) => {
@@ -63,13 +60,12 @@ const ModalConfirmation: FC<Omit<ButtonProps, "variant">> = ({ children, classNa
 const ModalCancel: FC<TouchableOpacityProps> = ({ children, className, ...props }) => {
   return (
     <TouchableOpacity className={cn("self-center px-2 py-1", className)} {...props}>
-      {children}
+      <Typography>{children}</Typography>
     </TouchableOpacity>
   );
 };
 
 export const Dialog = Object.assign(ModalComponent, {
-  Body: ModalBody,
   Title: ModalTitle,
   Description: ModalDescription,
   Confirmation: ModalConfirmation,
@@ -91,11 +87,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: -56,
     transform: [{ rotate: "180deg" }],
-  },
-  white: {
-    fill: COLORS.WHITE,
-  },
-  yellow: {
-    fill: COLORS.YELLOW_500,
+    zIndex: 40,
   },
 });
