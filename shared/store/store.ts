@@ -16,7 +16,6 @@ export const useAppStore = create<AppStoreProps>()(
       name: STORAGE_KEY.APP_STORAGE,
       storage: createJSONStorage(() => AsyncStorageService),
       partialize: (state) => ({}),
-      version: 1,
     }
   )
 );

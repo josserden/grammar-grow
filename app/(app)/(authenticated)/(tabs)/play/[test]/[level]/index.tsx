@@ -4,6 +4,9 @@ import { GestureDetector } from "react-native-gesture-handler";
 
 import { useLocalSearchParams, useRouter } from "expo-router";
 
+import { useQuery } from "@tanstack/react-query";
+
+import { WordQuizApi } from "@/shared/api/word-quiz";
 import { Dialog } from "@/shared/components/ui/Dialog";
 import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
@@ -15,6 +18,8 @@ const Index = () => {
   const { composedGesture } = usePreventLeftSwipe();
   const { back } = useRouter();
 
+  const { data: quizList = [] } = useQuery(WordQuizApi.options(test, level));
+
   const isVisible = useAppStore((state) => state.isVisible);
   const close = useAppStore((state) => state.close);
 
@@ -22,6 +27,8 @@ const Index = () => {
     close();
     back();
   };
+
+  console.log("🚀 ~ file: index.tsx:28 ~ Index ~ quizList:", quizList);
 
   return (
     <>
