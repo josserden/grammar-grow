@@ -37,6 +37,7 @@ export const AsyncStorageService = {
 };
 
 export const STORAGE_KEY = {
+  APP_STORAGE: "app_storage",
   ONBOARDING_COMPLETED: "onboarding_completed",
   SUPABASE_TOKEN: "supabase_token",
 };

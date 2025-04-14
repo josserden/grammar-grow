@@ -72,15 +72,6 @@ export const Dialog = Object.assign(ModalComponent, {
   Cancel: ModalCancel,
 });
 
-export const useDialog = () => {
-  const [visible, setVisible] = React.useState(false);
-
-  const open = () => setVisible(true);
-  const close = () => setVisible(false);
-
-  return { visible, open, close };
-};
-
 const styles = StyleSheet.create({
   decor: {
     left: 0,

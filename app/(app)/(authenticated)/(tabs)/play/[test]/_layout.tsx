@@ -1,36 +1,20 @@
 import React from "react";
 
-import { Stack, useGlobalSearchParams, useRouter } from "expo-router";
+import { Stack, useGlobalSearchParams } from "expo-router";
 
-import { Dialog, useDialog } from "@/shared/components/ui/Dialog";
 import { GoBackButton } from "@/shared/components/ui/GoBackButton";
 import { COLORS } from "@/shared/constants/colors";
 import { useTestTitle } from "@/shared/hooks/useTestTitle";
+import { useAppStore } from "@/shared/store/store";
 
 const TestLayout = () => {
   const { title } = useTestTitle();
   const { level } = useGlobalSearchParams();
-  const { back } = useRouter();
-  const { open, close, visible } = useDialog();
+
+  const open = useAppStore((state) => state.open);
 
   return (
     <>
-      <Dialog visible={visible}>
-        <Dialog.Title>Are you sure you want to exit?</Dialog.Title>
-        <Dialog.Description>
-          Lorem ipsum dolor sit amet consectetur. Quis enim nunc facilisis id.
-        </Dialog.Description>
-        <Dialog.Confirmation onPress={close}>Back to quiz</Dialog.Confirmation>
-        <Dialog.Cancel
-          onPress={() => {
-            close();
-            back();
-          }}
-        >
-          Cancel quiz
-        </Dialog.Cancel>
-      </Dialog>
-
       <Stack
         screenOptions={{
           headerStyle: {

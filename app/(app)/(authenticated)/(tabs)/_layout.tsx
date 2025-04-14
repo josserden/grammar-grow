@@ -23,13 +23,15 @@ export default function TabLayout() {
     shadowOffset: { height: 0, width: 0 },
     shadowOpacity: 0.12,
     shadowRadius: 32,
-  };
+  } as const;
 
   const shouldHideTabBar = segmentsToHideTabBar.includes(currentSegment) || segments.length >= 6;
   const tabBarStyle = shouldHideTabBar ? { display: "none" } : baseTabBarStyle;
 
   return (
     <Tabs
+      headerMode="screen"
+      mode="modalr"
       screenOptions={{
         headerStyle: {
           backgroundColor: COLORS.STONE_100,

@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { useFonts } from "expo-font";
+import * as NavigationBar from "expo-navigation-bar";
 import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -12,6 +13,7 @@ import "@/global.css";
 import { AuthProvider } from "@/shared/context/auth-context";
 import { useAppInitialization } from "@/shared/hooks/useAppInitialization";
 
+NavigationBar.setVisibilityAsync("hidden");
 SplashScreen.preventAutoHideAsync();
 
 SplashScreen.setOptions({
