@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { WordQuizApi } from "@/shared/api/word-quiz";
 import { HeaderDecor } from "@/shared/components/icons/decor/HeaderDecor";
+import { Accordion } from "@/shared/components/ui/Accordion";
 import { Button } from "@/shared/components/ui/Button";
 import { Dialog } from "@/shared/components/ui/Dialog";
 import { ScoreLabel } from "@/shared/components/ui/ScoreLabel";
@@ -256,70 +257,7 @@ const Index = () => {
 
       case STATE.RESULT:
         return (
-          // <View className="flex-1 items-center justify-between py-10">
-          //   {/* Верхня частина - бали */}
-          //   <View className="items-center">
-          //     <View className="flex-row items-center rounded-full bg-white px-6 py-2">
-          //       <Typography className="font-bold">+ {points}</Typography>
-          //       <View className="ml-2 rounded-full bg-yellow-500 p-1">
-          //         {/* Star icon can be added here */}
-          //       </View>
-          //     </View>
-          //
-          //     <Typography variant="title" className="mt-8">
-          //       Good job!
-          //     </Typography>
-          //     <Typography className="mt-2 text-zinc-700">
-          //       Lorem ipsum dolor sit amet consectetur.
-          //     </Typography>
-          //   </View>
-          //
-          //   {/* Місце для зображення персонажів */}
-          //   <View className="my-8">{/* Зображення персонажів */}</View>
-          //
-          //   {/* Секція результатів */}
-          //   <View className="w-full rounded-3xl bg-white p-4">
-          //     <View className="mb-4 flex-row items-center justify-between">
-          //       <Typography className="font-bold">
-          //         {score}/{quizList.length} correct answers
-          //       </Typography>
-          //       {/* Chevron icon can be added here */}
-          //     </View>
-          //
-          //     {/* Індикатори відповідей */}
-          //     <View className="flex-row flex-wrap gap-2 border-t border-zinc-100 py-4">
-          //       {answers.map((answer, index) => (
-          //         <View
-          //           key={index}
-          //           className={`rounded-full px-4 py-2 ${
-          //             answer.isCorrect ? "bg-green-200" : "bg-red-200"
-          //           }`}
-          //         >
-          //           {answer.isCorrect ? <Typography>✓</Typography> : <Typography>✗</Typography>}
-          //         </View>
-          //       ))}
-          //     </View>
-          //   </View>
-          //
-          //   {/* Кнопки дій */}
-          //   <View className="mt-6 w-full flex-row gap-4">
-          //     <TouchableOpacity
-          //       className="flex-1 items-center rounded-full bg-gray-200 py-4"
-          //       onPress={handleRestartQuiz}
-          //     >
-          //       <Typography className="font-bold">Play Again</Typography>
-          //     </TouchableOpacity>
-          //
-          //     <TouchableOpacity
-          //       className="flex-1 items-center rounded-full bg-black py-4"
-          //       onPress={() => back()}
-          //     >
-          //       <Typography className="font-bold text-white">Done</Typography>
-          //     </TouchableOpacity>
-          //   </View>
-          // </View>
-
-          <Modal animationType="fade" visible={gameState === STATE.RESULT}>
+          <Modal animationType="fade" visible>
             <Wrapper alignment="start" className="flex-1 items-center justify-start bg-yellow-500">
               <View className="mb-64 items-center gap-5">
                 <ScoreLabel isReverse score="+ 520" size="lg" />
@@ -331,9 +269,13 @@ const Index = () => {
                 <Typography>Lorem ipsum dolor sit amet consectetur.</Typography>
               </View>
 
-              <Button variant="secondary" className="w-full">
-                Done
-              </Button>
+              <View className="w-full px-6">
+                <Accordion score={score} answers={answers} total={quizList.length} />
+
+                <Button variant="secondary" className="w-full">
+                  Done
+                </Button>
+              </View>
             </Wrapper>
           </Modal>
         );
