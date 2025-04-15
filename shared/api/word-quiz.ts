@@ -20,7 +20,7 @@ export const WordQuizApi = {
       queryFn: async (): Promise<WordQuizResponseProps> =>
         await api.get(`${url}/?area=${testId}&level=${level}`).json<WordQuizResponseProps>(),
       enabled: !!testId && !!level,
-      select: (data): QuizListProps[] => data.quizlist,
+      select: (data): QuizListProps[] => data?.quizlist,
     });
   },
 };

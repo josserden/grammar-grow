@@ -23,6 +23,7 @@ const TestLayout = () => {
           headerTintColor: COLORS.ZINC_900,
           headerTitleStyle: {
             fontFamily: "DelaGothicOne-Regular",
+            textAlign: "center",
           },
         }}
       >
@@ -41,6 +42,9 @@ const TestLayout = () => {
             headerShadowVisible: false,
             title: `Level ${level}`,
             gestureEnabled: false,
+            headerStyle: {
+              backgroundColor: COLORS.YELLOW_500,
+            },
           }}
         />
       </Stack>

@@ -7,7 +7,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:react-native/all",
     "prettier",
-    "plugin:@tanstack/query/recommended"
+    "plugin:@tanstack/query/recommended",
   ],
   ignorePatterns: ["/dist/*"],
   parser: "@typescript-eslint/parser",
@@ -20,5 +20,9 @@ module.exports = {
   rules: {
     "react-native/no-raw-text": "off",
     "react/prop-types": "off",
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/no-rest-destructuring": "warn",
+    "@tanstack/query/no-unstable-deps": "warn",
+    "@tanstack/query/no-void-query-fn": "error"
   },
 };

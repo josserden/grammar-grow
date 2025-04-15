@@ -5,7 +5,7 @@ import { AsyncStorageService, STORAGE_KEY } from "@/shared/lib/storage";
 import { createModalSlice } from "@/shared/store/slices/modal/createModalSlice";
 import { ModalSliceTypes } from "@/shared/store/slices/modal/modalSlice.types";
 
-export interface AppStoreProps extends ModalSliceTypes {}
+export type AppStoreProps = ModalSliceTypes;
 
 export const useAppStore = create<AppStoreProps>()(
   persist(
