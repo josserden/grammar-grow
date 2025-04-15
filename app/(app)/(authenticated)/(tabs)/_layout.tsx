@@ -23,7 +23,7 @@ export default function TabLayout() {
     shadowOffset: { height: 0, width: 0 },
     shadowOpacity: 0.12,
     shadowRadius: 32,
-  } as const;
+  };
 
   const shouldHideTabBar = segmentsToHideTabBar.includes(currentSegment) || segments.length >= 6;
   const tabBarStyle = shouldHideTabBar ? { display: "none" } : baseTabBarStyle;
@@ -63,7 +63,6 @@ export default function TabLayout() {
             <TabBarIcon color={color} focused={focused} icon="play" />
           ),
           title: "",
-          unmountOnBlur: true,
         }}
       />
       <Tabs.Screen

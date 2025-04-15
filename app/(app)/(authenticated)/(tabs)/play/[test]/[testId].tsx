@@ -6,6 +6,12 @@ import { TestPage, TestPageProps } from "@/shared/components/screens/play/TestPa
 import { Wrapper } from "@/shared/components/ui/Wrapper";
 import { COLORS } from "@/shared/constants/colors";
 
+interface AnimatedItemProps {
+  item: TestPageProps;
+  index: number;
+  animatedValues: Animated.Value[];
+}
+
 const levels: TestPageProps[] = [
   {
     id: "1",
@@ -59,7 +65,7 @@ const levels: TestPageProps[] = [
   },
 ];
 
-const AnimatedItem = ({ item, index, animatedValues }) => {
+const AnimatedItem = ({ item, index, animatedValues }: AnimatedItemProps) => {
   const animatedStyle = {
     opacity: animatedValues[index],
     transform: [

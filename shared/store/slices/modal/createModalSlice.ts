@@ -2,12 +2,12 @@ import { StateCreator } from "zustand";
 
 import { ModalSliceTypes } from "@/shared/store/slices/modal/modalSlice.types";
 
-const initialState: ModalSliceTypes = {
+const initialState = {
   isVisible: false,
 };
 
 export const createModalSlice: StateCreator<ModalSliceTypes> = (set) => ({
   ...initialState,
   open: () => set({ isVisible: true }),
-  close: () => set({ isVisible: false }),
+  close: () => set(initialState),
 });

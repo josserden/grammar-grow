@@ -7,11 +7,12 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Typography } from "@/shared/components/ui/Typography";
 import { COLORS } from "@/shared/constants/colors";
 import { cn } from "@/shared/lib/utils";
+import { Answer } from "@/shared/types/Quiz.types";
 
-interface AccordionProps {
+export interface AccordionProps {
   score: number;
   total: number;
-  answers: Record<string, string>[];
+  answers: Answer[];
 }
 
 export const Accordion: FC<AccordionProps> = ({ score, total, answers }) => {

@@ -23,7 +23,6 @@ const TestLayout = () => {
           headerTintColor: COLORS.ZINC_900,
           headerTitleStyle: {
             fontFamily: "DelaGothicOne-Regular",
-            textAlign: "center",
           },
         }}
       >
