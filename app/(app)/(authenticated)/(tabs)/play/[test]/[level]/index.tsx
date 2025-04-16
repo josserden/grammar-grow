@@ -18,6 +18,7 @@ import {
 import { Dialog } from "@/shared/components/ui/Dialog";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
 import { usePreventLeftSwipe } from "@/shared/hooks/usePreventLeftSwipe";
+import { cn } from "@/shared/lib/utils";
 import { initialState, quizReducer } from "@/shared/reducers/quiz.reducer";
 import { useAppStore } from "@/shared/store/store";
 import { ACTION, STATE } from "@/shared/types/Quiz.types";
@@ -112,7 +113,10 @@ const Index = () => {
         <Wrapper
           alignment="start"
           topInset={Platform.OS !== "ios"}
-          className="items-center"
+          className={cn(
+            "items-center",
+            gameState === STATE.QUIZ ? "bg-stone-100" : "bg-yellow-500"
+          )}
           padding="none"
         >
           {renderContent()}
