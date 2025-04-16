@@ -31,7 +31,7 @@ const Index = () => {
   const { gameState, quizList, currentQuestion, answers, score, points } = state;
 
   // Використовуємо базові властивості useQuery
-  const { data = [], isSuccess, isLoading, isError } = useQuery(WordQuizApi.options());
+  const { data = [], isSuccess, isLoading, isError } = useQuery(WordQuizApi.options("", ""));
 
   // Синхронізація стану запиту з нашою машиною станів
   useEffect(() => {
