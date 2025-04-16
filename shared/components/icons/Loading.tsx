@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { Animated, Easing } from "react-native";
 import Svg, { Circle, G, Mask, Path, Rect, SvgProps } from "react-native-svg";
 
@@ -7,24 +7,45 @@ import { COLORS } from "@/shared/constants/colors";
 const ANIMATION_DURATION = 10000;
 
 export const Loading = ({ ...props }: SvgProps) => {
-  const animatedValue = useRef(new Animated.Value(0)).current;
+  // Використовуємо useRef для зберігання animatedValue
+  const animatedValueRef = useRef<Animated.Value | null>(null);
 
-  const leftEyeX = animatedValue.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [133.5, 181.5, 133.5],
-  });
+  // Ініціалізуємо animatedValue лише один раз
+  if (animatedValueRef.current === null) {
+    animatedValueRef.current = new Animated.Value(0);
+  }
 
-  const rightEyeX = animatedValue.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [298.5, 346.5, 298.5],
-  });
+  // Отримуємо animatedValue
+  const animatedValue = animatedValueRef.current;
 
-  const progressWidth = animatedValue.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [0, 300, 0],
-  });
+  // Створюємо інтерполяції використовуючи useMemo
+  const interpolations = useMemo(() => {
+    return {
+      leftEyeX: animatedValue.interpolate({
+        inputRange: [0, 0.5, 1],
+        outputRange: [133.5, 181.5, 133.5],
+      }),
+      rightEyeX: animatedValue.interpolate({
+        inputRange: [0, 0.5, 1],
+        outputRange: [298.5, 346.5, 298.5],
+      }),
+      progressWidth: animatedValue.interpolate({
+        inputRange: [0, 0.5, 1],
+        outputRange: [0, 300, 0],
+      }),
+    };
+  }, [animatedValue]);
 
+  // Створюємо animated components один раз
+  const AnimatedCircle = useMemo(() => Animated.createAnimatedComponent(Circle), []);
+
+  const AnimatedRect = useMemo(() => Animated.createAnimatedComponent(Rect), []);
+
+  // Запускаємо анімацію один раз при монтуванні
   useEffect(() => {
+    // Зберігаємо посилання на анімацію для очищення
+    let loopedAnimation: Animated.CompositeAnimation | null = null;
+
     const animation = Animated.timing(animatedValue, {
       toValue: 1,
       duration: ANIMATION_DURATION,
@@ -32,18 +53,16 @@ export const Loading = ({ ...props }: SvgProps) => {
       useNativeDriver: false,
     });
 
-    const loopedAnimation = Animated.loop(animation);
-
+    loopedAnimation = Animated.loop(animation);
     loopedAnimation.start();
 
+    // Очищення при розмонтуванні
     return () => {
-      loopedAnimation.stop();
-      animatedValue.setValue(0);
+      if (loopedAnimation) {
+        loopedAnimation.stop();
+      }
     };
   }, [animatedValue]);
-
-  const AnimatedCircle = Animated.createAnimatedComponent(Circle);
-  const AnimatedRect = Animated.createAnimatedComponent(Rect);
 
   return (
     <Svg width="481" height="468" viewBox="0 0 481 468" fill="none" {...props}>
@@ -77,7 +96,7 @@ export const Loading = ({ ...props }: SvgProps) => {
         <Circle cx="157.5" cy="207.5" r="47.5" fill="white" />
       </Mask>
       <G mask="url(#mask0_492_1035)">
-        <AnimatedCircle cx={leftEyeX} cy="227.5" r="47.5" fill="#3A2E32" />
+        <AnimatedCircle cx={interpolations.leftEyeX} cy="227.5" r="47.5" fill="#3A2E32" />
       </G>
       <Mask
         id="mask1_492_1035"
@@ -91,13 +110,13 @@ export const Loading = ({ ...props }: SvgProps) => {
         <Circle cx="322.5" cy="207.5" r="47.5" fill="white" />
       </Mask>
       <G mask="url(#mask1_492_1035)">
-        <AnimatedCircle cx={rightEyeX} cy="227.5" r="47.5" fill="#3A2E32" />
+        <AnimatedCircle cx={interpolations.rightEyeX} cy="227.5" r="47.5" fill="#3A2E32" />
       </G>
 
       <AnimatedRect
         x="90"
         y="310"
-        width={progressWidth}
+        width={interpolations.progressWidth}
         height="16"
         rx="8"
         fill={COLORS.ORANGE_700}

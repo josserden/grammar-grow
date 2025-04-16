@@ -26,11 +26,11 @@ export const Quiz: FC<QuizProps> = ({ quizList, currentQuestion, onHandleAnswer 
         ))}
       </View>
 
-      <View className="flex-row flex-wrap justify-center gap-4">
+      <View className="flex-row justify-center gap-4 px-8">
         {quizList[currentQuestion]?.option.map((option: string, index: number) => (
           <TouchableOpacity
             key={option}
-            className="h-[52px] w-[130px] items-center justify-center rounded-full bg-zinc-900"
+            className="h-[52px] w-1/2 items-center justify-center rounded-full bg-zinc-900"
             onPress={() => onHandleAnswer(index)}
           >
             <Typography className="font-montserrat-semi-bold capitalize tracking-wide text-white">

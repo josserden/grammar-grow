@@ -31,23 +31,25 @@ const Index = () => {
   const [state, dispatch] = useReducer(quizReducer, initialState);
   const { gameState, quizList, currentQuestion, answers, score, points } = state;
 
-  // Використовуємо базові властивості useQuery
-  const { data = [], isSuccess, isLoading, isError } = useQuery(WordQuizApi.options("", ""));
+  const { data = [], status, isLoading } = useQuery(WordQuizApi.options(test, level));
 
-  // Синхронізація стану запиту з нашою машиною станів
   useEffect(() => {
-    if (isLoading) {
+    if (status === "pending" || isLoading) {
       dispatch({ type: ACTION.FETCH_START });
-    } else if (isSuccess) {
-      if (data.length === 0) {
-        dispatch({ type: ACTION.FETCH_EMPTY });
-      } else {
-        dispatch({ type: ACTION.FETCH_SUCCESS, payload: data });
-      }
-    } else if (isError) {
+    } else if (status === "error") {
       dispatch({ type: ACTION.FETCH_ERROR });
     }
-  }, [data, isSuccess, isLoading, isError]);
+  }, [status, isLoading, dispatch]);
+
+  useEffect(() => {
+    if (status === "success") {
+      if (Array.isArray(data) && data.length === 0) {
+        dispatch({ type: ACTION.FETCH_EMPTY });
+      } else if (Array.isArray(data)) {
+        dispatch({ type: ACTION.FETCH_SUCCESS, payload: data });
+      }
+    }
+  }, [status, data, dispatch]);
 
   const isVisible = useAppStore((state) => state.isVisible);
   const close = useAppStore((state) => state.close);
@@ -57,12 +59,10 @@ const Index = () => {
     back();
   };
 
-  // Обробка відповіді користувача
   const handleAnswer = (optionIndex: number) => {
     dispatch({ type: ACTION.ANSWER_QUESTION, payload: { optionIndex } });
   };
 
-  // Функція для повторного проходження вікторини
   const handleRestartQuiz = () => {
     dispatch({ type: ACTION.RESTART_QUIZ });
   };

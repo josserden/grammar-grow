@@ -1,7 +1,7 @@
 import { ACTION, Action, QuizState, STATE } from "@/shared/types/Quiz.types";
 
 export const initialState: QuizState = {
-  gameState: STATE.IDLE,
+  gameState: STATE.EMPTY,
   quizList: [],
   currentQuestion: 0,
   answers: [],
