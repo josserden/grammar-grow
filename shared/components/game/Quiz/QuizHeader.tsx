@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { FC, useEffect, useRef } from "react";
+import { Animated, StyleSheet, View } from "react-native";
 
 import { HeaderDecor } from "@/shared/components/icons/decor/HeaderDecor";
 import { Typography } from "@/shared/components/ui/Typography";
-import { cn } from "@/shared/lib/utils";
+import { COLORS } from "@/shared/constants/colors";
 import { QuizOption } from "@/shared/types/Quiz.types";
 
 interface QuizHeaderProps {
@@ -12,18 +12,50 @@ interface QuizHeaderProps {
 }
 
 export const QuizHeader: FC<QuizHeaderProps> = ({ quizList, currentQuestion }) => {
+  const animatedValues = useRef<Animated.Value[]>([]);
+
+  if (animatedValues.current.length === 0 && quizList.length > 0) {
+    quizList.forEach((_, index) => {
+      const initialValue = currentQuestion >= index ? 1 : 0;
+      animatedValues.current.push(new Animated.Value(initialValue));
+    });
+  }
+
+  useEffect(() => {
+    const animations = quizList.map((_, index) => {
+      const toValue = currentQuestion >= index ? 1 : 0;
+
+      return Animated.timing(animatedValues.current[index], {
+        toValue,
+        duration: 300,
+        useNativeDriver: false,
+      });
+    });
+
+    Animated.parallel(animations).start();
+  }, [currentQuestion, quizList, quizList.length]);
+
   return (
     <View className="relative w-full">
       <View className="flex-row items-center justify-center gap-1 bg-yellow-500 py-10">
-        {quizList.map((_, index) => (
-          <View
-            key={index}
-            className={cn(
-              "h-2 w-7 rounded border border-zinc-900",
-              currentQuestion >= index ? "bg-white" : "bg-yellow-500"
-            )}
-          />
-        ))}
+        {quizList.map((_, index) => {
+          const backgroundColor = animatedValues.current[index]?.interpolate({
+            inputRange: [0, 1],
+            outputRange: [COLORS.YELLOW_500, COLORS.STONE_100],
+          });
+
+          return (
+            <Animated.View
+              key={index}
+              style={[
+                styles.progressBar,
+                {
+                  backgroundColor,
+                },
+              ]}
+            />
+          );
+        })}
       </View>
 
       <View className="items-center justify-center gap-1 bg-yellow-500">
@@ -45,5 +77,12 @@ const styles = StyleSheet.create({
     left: 0,
     position: "absolute",
     zIndex: -1,
+  },
+  progressBar: {
+    borderColor: COLORS.ZINC_900,
+    borderRadius: 4,
+    borderWidth: 1,
+    height: 8,
+    width: 28,
   },
 });
