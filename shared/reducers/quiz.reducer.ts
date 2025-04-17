@@ -1,7 +1,7 @@
 import { ACTION, Action, QuizState, STATE } from "@/shared/types/Quiz.types";
 
 export const initialState: QuizState = {
-  gameState: STATE.EMPTY,
+  gameState: STATE.RESULT,
   quizList: [],
   currentQuestion: 0,
   answers: [],
@@ -66,6 +66,9 @@ export const quizReducer = (state: QuizState, action: Action): QuizState => {
         quizList: state.quizList,
         gameState: STATE.QUIZ,
       };
+
+    case ACTION.FINISH_QUIZ:
+      return initialState;
 
     default:
       return state;

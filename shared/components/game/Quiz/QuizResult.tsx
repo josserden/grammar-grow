@@ -1,11 +1,14 @@
 import React, { FC } from "react";
 import { Modal, View } from "react-native";
 
+import { useRouter } from "expo-router";
+
 import { Accordion, AccordionProps } from "@/shared/components/ui/Accordion";
 import { Button } from "@/shared/components/ui/Button";
 import { ScoreLabel } from "@/shared/components/ui/ScoreLabel";
 import { Typography } from "@/shared/components/ui/Typography";
 import { Wrapper } from "@/shared/components/ui/Wrapper";
+import { ROUTES } from "@/shared/constants/routes";
 
 interface QuizResultProps extends AccordionProps {
   onFinish: () => void;
@@ -13,7 +16,13 @@ interface QuizResultProps extends AccordionProps {
 }
 
 export const QuizResult: FC<QuizResultProps> = ({ score, total, answers, onFinish }) => {
+  const router = useRouter();
   const transformedScore = score > 0 ? `+ ${score}` : `${score}`;
+
+  const handleDone = () => {
+    onFinish();
+    router.replace(ROUTES.PLAY);
+  };
 
   return (
     <Modal animationType="fade" visible>
@@ -31,7 +40,7 @@ export const QuizResult: FC<QuizResultProps> = ({ score, total, answers, onFinis
         <View className="w-full px-6">
           <Accordion score={score} answers={answers} total={total} />
 
-          <Button variant="secondary" className="w-full" onPress={onFinish}>
+          <Button variant="secondary" className="w-full" onPress={handleDone}>
             Done
           </Button>
         </View>

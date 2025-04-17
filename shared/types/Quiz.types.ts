@@ -14,6 +14,7 @@ export const ACTION = {
   FETCH_ERROR: "fetch_error",
   ANSWER_QUESTION: "answer_question",
   RESTART_QUIZ: "restart_quiz",
+  FINISH_QUIZ: "finish_quiz",
 } as const;
 
 export interface QuizOption {

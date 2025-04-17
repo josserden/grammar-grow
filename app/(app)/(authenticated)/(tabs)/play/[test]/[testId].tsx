@@ -81,7 +81,7 @@ const AnimatedItem = ({ item, index, animatedValues }: AnimatedItemProps) => {
   return (
     <Animated.View style={animatedStyle} className="items-center px-4">
       <View className="relative">
-        <TestPage {...item} />
+        <TestPage isLocked={index !== 0} {...item} />
         <View className="absolute left-0 top-0 -z-10 h-full w-full rotate-2 rounded-[20px] bg-zinc-900" />
       </View>
 

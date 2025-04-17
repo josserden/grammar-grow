@@ -63,8 +63,8 @@ const Index = () => {
     dispatch({ type: ACTION.ANSWER_QUESTION, payload: { optionIndex } });
   };
 
-  const handleRestartQuiz = () => {
-    dispatch({ type: ACTION.RESTART_QUIZ });
+  const handleFinishQuiz = () => {
+    dispatch({ type: ACTION.FINISH_QUIZ });
   };
 
   const renderContent = () => {
@@ -98,7 +98,7 @@ const Index = () => {
             score={score}
             answers={answers}
             total={quizList.length}
-            onFinish={handleRestartQuiz}
+            onFinish={handleFinishQuiz}
           />
         );
 
